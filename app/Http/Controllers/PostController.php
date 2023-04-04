@@ -41,8 +41,8 @@ class PostController extends Controller
         return view('post.edit',compact(['post']));
     }
 
-    public function update(Request $request){
-        $post = Post::find($request->id);
+    public function update(Request $request,$id){
+        $post = Post::find($id);
 
         $post->Judul = $request->judul;
         $post->Deskripsi = $request->deskripsi;

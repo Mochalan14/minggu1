@@ -7,10 +7,10 @@
         <a href="{{ route('post.index') }}">Kembali</a>
         <div class="row text-center text-md-left">
             @foreach ($post as $item)
-                <form action="{{ route('post.update') }}" method="post">
+                <form action="{{ route('post.update', $item->id) }}" method="post">
                     @method('put')
                     @csrf
-                    <input type="hidden" value="{{ $item->id }}" name="id">
+                    {{-- <input type="hidden" value="{{ $item->id }}" name="id"> --}}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Judul</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="judul"
