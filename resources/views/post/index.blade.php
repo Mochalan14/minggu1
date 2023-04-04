@@ -12,8 +12,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->Judul }}</h5>
                         <p class="card-text">{{ $post->Deskripsi }}</p>
-                        <a href="/post/edit/{{ $post->id }}" class="card-link">Edit</a>
-                        <a href="#" class="card-link">Hapus</a>
+                        {{-- <a href="/post/edit/{{ $post->id }}" class="card-link">Edit</a>
+                        <a href="#" class="card-link">Hapus</a> --}}
                     </div>
                 </div>
             @endforeach
@@ -25,6 +25,7 @@
                     <th>No</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,18 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $post->Judul }}</td>
                         <td>{{ $post->Deskripsi }}</td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-warning">Edit</a>
+                                <form action="{{ route('post.delete', $post->id) }}" method="post">
+
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                                </form>
+
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
