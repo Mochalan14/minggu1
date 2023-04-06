@@ -91,6 +91,7 @@ class PostController extends Controller
 
     public function delete($id){
         $post = Post::find($id);
+        Storage::delete('public/'.$post->photo);
         $post->delete();
 
         return redirect()->route('post.index');
