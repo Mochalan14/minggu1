@@ -7,8 +7,12 @@
     <div class="container mt-5">
         <a href="{{ route('post.index') }}">Kembali</a>
         <div class="row text-center text-md-left">
-            <form action="{{ route('post.store') }}" method="post">
+            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail0">Gambar</label>
+                    <input type="file" class="form-control" id="exampleInputEmail0" name="photo">
+                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name="judul">

@@ -1,3 +1,4 @@
+div
 <!-- Menghubungkan dengan view template master -->
 @extends('layout.app')
 
@@ -23,6 +24,7 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Photo</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Action</th>
@@ -32,6 +34,16 @@
                 @foreach ($posts as $post)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>
+                            @if ($post->photo != null)
+                                <div style="width:200px">
+                                    <img src="{{ asset('storage/' . $post->photo) }}" class="img-fluid" alt="...">
+
+                                </div>
+                            @else
+                                <p class="text-info">tidak ada foto</p>
+                            @endif
+                        </td>
                         <td>{{ $post->Judul }}</td>
                         <td>{{ $post->Deskripsi }}</td>
                         <td>
