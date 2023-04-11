@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,11 +18,13 @@ class PostController extends Controller
     public function index(){
 
         $posts = Post::all();
-        return view('post.index',compact(['posts']));
+        $kategori = Category::all();
+        return view('post.index',compact(['posts','kategori']));
     }
 
     public function create(){
-        return view('post.create');
+        $kategori = Category::all();
+        return view('post.create',compact(['kategori']));
     }
 
     public function store(Request $request){
@@ -38,6 +41,7 @@ class PostController extends Controller
         $post = Post::create([
             'Judul' => $data['judul'],
             'Deskripsi' => $data['deskripsi'],
+            'id_kategori' => $data['id_kategori'],
             'photo' => $photo_path
         ]);
 
@@ -95,5 +99,11 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('post.index');
+    }
+
+    public function category($id){
+        $kategoris = Category::with(['fkPost'])->where('id',$id)->get();
+        
+        return view('post.category',compact(['kategoris']));
     }
 }

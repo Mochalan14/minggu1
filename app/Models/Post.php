@@ -12,6 +12,11 @@ class Post extends Model
     protected $fillable = [
         'Judul',
         'Deskripsi',
-        'photo'
+        'photo',
+        'id_kategori'
     ];
+
+    public function fkCategory(){
+        return $this->belongsTo(Category::class,'id_kategori','id');
+    }
 }

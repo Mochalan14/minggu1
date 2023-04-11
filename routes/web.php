@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,11 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/post/edit/{id}', 'edit')->name('post.edit');
     Route::put('/post/update/{id}', 'update')->name('post.update');
     Route::post('/post/delete/{id}', 'delete')->name('post.delete');
+    Route::get('/post/category/{id}', 'category')->name('post.category');
+});
+
+Route::controller(KategoriController::class)->group(function(){
+    Route::get('/post/kategori/create','create')->name('kategori.create');
 });
 
 
