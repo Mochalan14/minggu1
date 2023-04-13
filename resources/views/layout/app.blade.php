@@ -31,17 +31,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::is('post.index') ? 'active' : '' }}"
-                            href="{{ route('post.index') }}">Post</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::is('minggu2') ? 'active' : '' }}"
-                            href="{{ route('minggu2') }}">Minggu 2</a>
-                    </li>
+                    @auth
+                        @if (Auth::user()->userRole->role->name == 'admin')
+                            @include('include.navbar-admin')
+                        @else
+                            @include('include.navbar-member')
+                        @endif
+
+                    @endauth
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#portfolio">Portfolio</a>
                     </li>

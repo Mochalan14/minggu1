@@ -5,7 +5,7 @@
 
 @section('konten')
     <div class="container mt-5">
-        <a href="{{ route('post.index') }}">Kembali</a>
+        <a href="{{ route('admin.post.index') }}">Kembali</a>
         <div class="row text-center text-md-left">
             <form action="" method="post">
                 @csrf

@@ -6,7 +6,7 @@ div
 
 @section('konten')
     <div class="container mt-5">
-        <a href="{{ route('post.index') }}" class="btn btn-danger">Kembali</a>
+        <a href="{{ route('admin.post.index') }}" class="btn btn-danger">Kembali</a>
         <div class="row mt-3 text-center justify-content-center">
             @foreach ($kategoris as $kategori)
                 @foreach ($kategori->fkPost as $post)

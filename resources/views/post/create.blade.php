@@ -5,9 +5,9 @@
 
 @section('konten')
     <div class="container mt-5">
-        <a href="{{ route('post.index') }}">Kembali</a>
+        <a href="{{ route('admin.post.index') }}">Kembali</a>
         <div class="row text-center text-md-left">
-            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail0">Gambar</label>

@@ -6,10 +6,10 @@ div
 
 @section('konten')
     <div class="container mt-5">
-        <a href="{{ route('post.create') }}" class="btn btn-warning">Tambah Postingan</a>
-        <a href="{{ route('kategori.create') }}" class="btn btn-warning">Tambah Kategori</a>
+        <a href="{{ route('admin.post.create') }}" class="btn btn-warning">Tambah Postingan</a>
+        <a href="{{ route('admin.kategori.create') }}" class="btn btn-warning">Tambah Kategori</a>
         @foreach ($kategori as $item)
-            <a href="{{ route('post.category', $item->id) }}" class="btn btn-primary">{{ $item->nama_kategori }}</a>
+            <a href="{{ route('admin.post.category', $item->id) }}" class="btn btn-primary">{{ $item->nama_kategori }}</a>
         @endforeach
         <div class="row mt-3 text-center justify-content-center">
             @foreach ($posts as $post)
@@ -53,8 +53,8 @@ div
                         <td>{{ $post->Deskripsi }}</td>
                         <td>
                             <div class="d-flex justify-content-between">
-                                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-warning">Edit</a>
-                                <form action="{{ route('post.delete', $post->id) }}" method="post">
+                                <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-warning">Edit</a>
+                                <form action="{{ route('admin.post.delete', $post->id) }}" method="post">
 
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Delete</button>

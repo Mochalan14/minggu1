@@ -4,10 +4,10 @@
 
 @section('konten')
     <div class="container mt-5">
-        <a href="{{ route('post.index') }}">Kembali</a>
+        <a href="{{ route('admin.post.index') }}">Kembali</a>
         <div class="row text-center text-md-left">
             @foreach ($post as $item)
-                <form action="{{ route('post.update', $item->id) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.post.update', $item->id) }}" method="post" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     {{-- <input type="hidden" value="{{ $item->id }}" name="id"> --}}

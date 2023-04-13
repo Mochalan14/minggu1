@@ -45,7 +45,7 @@ class PostController extends Controller
             'photo' => $photo_path
         ]);
 
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.index');
         // dd($data);
     }
 
@@ -90,7 +90,7 @@ class PostController extends Controller
         // $post->Deskripsi = $request->deskripsi;
         // $post->save();
 
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.index');
     }
 
     public function delete($id){
@@ -98,7 +98,7 @@ class PostController extends Controller
         Storage::delete('public/'.$post->photo);
         $post->delete();
 
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.index');
     }
 
     public function category($id){
