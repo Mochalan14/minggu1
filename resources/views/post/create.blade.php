@@ -11,15 +11,27 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail0">Gambar</label>
-                    <input type="file" class="form-control" id="exampleInputEmail0" name="photo">
+                    <input type="file" class="form-control" id="exampleInputEmail0" name="photo"
+                        value="{{ old('photo') }}">
+                    @error('photo')
+                        <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Judul</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="judul">
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="judul"
+                        value="{{ old('judul') }}">
+                    @error('judul')
+                        <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail2">Deskripsi</label>
-                    <input type="text" class="form-control" id="exampleInputEmail2" name="deskripsi">
+                    <input type="text" class="form-control" id="exampleInputEmail2" name="deskripsi"
+                        value="{{ old('deskripsi') }}">
+                    @error('deskripsi')
+                        <span class="me-2 text-danger fw-bold">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
